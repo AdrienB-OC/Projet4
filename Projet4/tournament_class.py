@@ -1,10 +1,13 @@
+from datetime import datetime
+
+
 class Tournament:
-    def __init__(self, name, location, start_date, end_date, time_control,
+    def __init__(self, name, location, time_control,
                  description):
         self.name = name
         self.location = location
-        self.start_date = start_date
-        self.end_date = end_date
+        self.start_date = datetime.today().strftime('%d-%m-%Y')
+        self.end_date = datetime.today().strftime('%d-%m-%Y')
         self.turns = 4
         self.rounds_list = []
         self.players_list: []

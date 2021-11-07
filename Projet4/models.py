@@ -1,8 +1,8 @@
-import json
 from views import View
 from player_class import*
 from pairing import*
-from sqlitetest import add_player_data
+from sqlitetest import*
+from datetime import datetime
 
 
 def create_player():
@@ -69,6 +69,28 @@ def create_round(player_list_top, player_list_bottom, match_id):
     return results, match_id
 
 
+def create_player_list():
+    player_list = []
+    player_data = fetch_all_data()
+    for i in range(0, 8):
+        k = 1
+        for j in range(len(player_data)):
+            print(k, player_data[j].name,
+                  player_data[j].surname, player_data[j].ranking)
+            k += 1
+        option = input("Entrez l'id correspondant au joueur que vous "
+                       "souhaitez ajouter : ")
+        option = int(option)
+        option -= 1
+        for item in enumerate(player_data):
+            if item[0] == option:
+                player = player_data.pop(option)
+                player_list.append(player)
+                break
+
+    return player_list
+
+
 def create_tournament(player_list):
     match_id = []
     tournament = View.tournament_input()
@@ -110,8 +132,7 @@ def create_tournament(player_list):
                 r4_result = r_result[0]
             print(''.join(map(str, r_result)))
     print('Tournoi terminé')
-    return r1_result, r2_result, r3_result, r4_result
-
-
+    tournament.end_date = datetime.today().strftime('%d-%m-%Y')
+    return r1_result, r2_result, r3_result, r4_result, tournament
 
 

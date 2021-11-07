@@ -15,7 +15,7 @@ class Player:
 
 
 class Tournament_Player:
-    def __init__(self, name, surname, birth_date, gender, ranking,  t_id):
+    def __init__(self, t_id, name, surname, birth_date, gender, ranking):
         self.name = name.upper()
         self.surname = surname.capitalize()
         self.birth_date = birth_date

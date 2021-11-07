@@ -22,13 +22,10 @@ class View:
     def tournament_input():
         name = input('Nom du tournoi : ')
         location = input('Lieu où se déroule le tournoi : ')
-        start_date = input('Date de début du tournoi : ')
-        end_date = input('Date de fin du tournoi : ')
         time_control = input('Contrôle du temps : ')
         description = input('Description : ')
 
-        tournament = Tournament(name, location, start_date, end_date,
-                                time_control, description)
+        tournament = Tournament(name, location, time_control, description)
         return tournament
 
 
