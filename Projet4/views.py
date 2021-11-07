@@ -8,7 +8,7 @@ class View:
         surname = input("Prénom du joueur : ")
         birth_date = input("Date de Naissance (JJ/MM/AAAA) : ")
         gender = input("Sexe (M/F) : ")
-        ranking = input("Classement (0 si non classé) : ")
+        ranking = input("Classement : ")
         player = Player(name, surname, birth_date, gender, ranking)
         return player
 
